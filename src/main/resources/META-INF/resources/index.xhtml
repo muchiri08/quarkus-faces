@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Quarkus Faces Test</title>
+        <h:outputStylesheet library="webjars" name="primeflex/3.3.1/primeflex.min.css"/>
+    </h:head>
+    <h:body>
+
+        <div class="flex justify-content-center align-items-center">
+            <div class="w-6">
+                <h2>Login</h2>
+                <p:messages skipDetailIfEqualsSummary="true" styleClass="text-xs w-full" showIcon="false" closable="true">
+                    <p:autoUpdate/>
+                </p:messages>
+                <h:form>
+                    <div class="field">
+                        <p:outputLabel for="username" value="Username"/>
+                        <p:inputText id="username" value="#{auth.username}" styleClass="w-full" required="true" requiredMessage="username is required"/>
+                    </div>
+                    <div class="field">
+                        <p:outputLabel for="password" value="Password"/>
+                        <p:password id="password" value="#{auth.password}" styleClass="w-full" required="true" requiredMessage="password is required"/>
+                    </div>
+                    <p:commandButton action="#{auth.authenticate()}" value="Submit"/>
+                </h:form>
+            </div>
+        </div>
+    </h:body>
+</html>
