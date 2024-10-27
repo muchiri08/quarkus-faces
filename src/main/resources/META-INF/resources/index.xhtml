@@ -8,7 +8,6 @@
         <h:outputStylesheet library="webjars" name="primeflex/3.3.1/primeflex.min.css"/>
     </h:head>
     <h:body>
-
         <div class="flex justify-content-center align-items-center">
             <div class="w-6">
                 <h2>Login</h2>
@@ -18,15 +17,22 @@
                 <h:form>
                     <div class="field">
                         <p:outputLabel for="username" value="Username"/>
-                        <p:inputText id="username" value="#{auth.username}" styleClass="w-full" required="true" requiredMessage="username is required"/>
+                        <p:inputText id="username" value="#{auth.username}" styleClass="w-full"/>
                     </div>
                     <div class="field">
                         <p:outputLabel for="password" value="Password"/>
-                        <p:password id="password" value="#{auth.password}" styleClass="w-full" required="true" requiredMessage="password is required"/>
+                        <p:password id="password" value="#{auth.password}" styleClass="w-full"/>
                     </div>
                     <p:commandButton action="#{auth.authenticate()}" value="Submit"/>
                 </h:form>
             </div>
         </div>
     </h:body>
+    <!-- <form action="/j_security_check" method="post">
+        <label>Username</label>
+        <input type="text" placeholder="Username" name="j_username" required="true"/>
+        <label>Password</label>
+        <input type="password" placeholder="Password" name="j_password" required="true"/>
+        <button type="submit">Login</button>
+    </form> -->
 </html>
