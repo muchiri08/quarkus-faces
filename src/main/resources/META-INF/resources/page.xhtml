@@ -11,6 +11,20 @@
         <h:form>
             <p:commandButton action="#{auth.logout()}" value="Logout" />
         </h:form>
+
+        <h:form>
+            <p:dataTable value="#{home.users}" var="user">
+                <p:column headerText="ID">
+                    <h:outputText value="#{user.id}"/>
+                </p:column>
+                <p:column headerText="Username">
+                    <h:outputText value="#{user.username}"/>
+                </p:column>
+                <p:column headerText="role">
+                    <h:outputText value="#{user.role}"/>
+                </p:column>
+            </p:dataTable>
+        </h:form>
     </div>
 </h:body>
 </html>
