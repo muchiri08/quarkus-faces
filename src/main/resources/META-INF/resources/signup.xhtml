@@ -1,32 +1,35 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="jakarta.faces.html"
-      xmlns:p="http://primefaces.org/ui">
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="jakarta.faces.html" xmlns:p="http://primefaces.org/ui" xmlns:f="jakarta.faces.core">
+<f:view transient="true">
     <h:head>
         <title>Quarkus Faces Test</title>
-        <h:outputStylesheet library="webjars" name="primeflex/3.3.1/primeflex.min.css"/>
+        <h:outputStylesheet library="webjars" name="primeflex/3.3.1/primeflex.min.css" />
     </h:head>
     <h:body>
         <div class="flex justify-content-center align-items-center">
             <div class="w-6">
                 <h2>Signup</h2>
-                <p:messages skipDetailIfEqualsSummary="true" styleClass="text-xs w-full" showIcon="false" closable="true">
-                    <p:autoUpdate/>
+                <p:messages skipDetailIfEqualsSummary="true" styleClass="text-xs w-full" showIcon="false"
+                    closable="true">
+                    <p:autoUpdate />
                 </p:messages>
                 <h:form styleClass="mb-3">
                     <div class="field">
-                        <p:outputLabel for="username" value="Username"/>
-                        <p:inputText id="username" value="#{signup.username}" styleClass="w-full"/>
+                        <p:outputLabel for="username" value="Username" />
+                        <p:inputText id="username" value="#{signup.username}" styleClass="w-full" />
                     </div>
                     <div class="field">
-                        <p:outputLabel for="password" value="Password"/>
-                        <p:password id="password" value="#{signup.password}" styleClass="w-full"/>
+                        <p:outputLabel for="password" value="Password" />
+                        <p:password id="password" value="#{signup.password}" styleClass="w-full" />
                     </div>
-                    <p:commandButton type="submit" action="#{signup.user()}" value="Submit"/>
+                    <p:commandButton type="submit" action="#{signup.user()}" value="Submit" />
                 </h:form>
-                <p:link outcome="index" value="Login"/>
+                <p:link outcome="index" value="Login" />
             </div>
         </div>
     </h:body>
+</f:view>
+
 </html>
