@@ -10,30 +10,23 @@
     <h:body>
         <div class="flex justify-content-center align-items-center">
             <div class="w-6">
-                <h2>Login</h2>
+                <h2>Signup</h2>
                 <p:messages skipDetailIfEqualsSummary="true" styleClass="text-xs w-full" showIcon="false" closable="true">
                     <p:autoUpdate/>
                 </p:messages>
                 <h:form styleClass="mb-3">
                     <div class="field">
                         <p:outputLabel for="username" value="Username"/>
-                        <p:inputText id="username" value="#{auth.username}" styleClass="w-full"/>
+                        <p:inputText id="username" value="#{signup.username}" styleClass="w-full"/>
                     </div>
                     <div class="field">
                         <p:outputLabel for="password" value="Password"/>
-                        <p:password id="password" value="#{auth.password}" styleClass="w-full"/>
+                        <p:password id="password" value="#{signup.password}" styleClass="w-full"/>
                     </div>
-                    <p:commandButton action="#{auth.authenticate()}" value="Submit"/>
+                    <p:commandButton type="submit" action="#{signup.user()}" value="Submit"/>
                 </h:form>
-                <p:link outcome="signup" value="Signup"/>
+                <p:link outcome="index" value="Login"/>
             </div>
         </div>
     </h:body>
-    <!-- <form action="/j_security_check" method="post">
-        <label>Username</label>
-        <input type="text" placeholder="Username" name="j_username" required="true"/>
-        <label>Password</label>
-        <input type="password" placeholder="Password" name="j_password" required="true"/>
-        <button type="submit">Login</button>
-    </form> -->
 </html>

@@ -42,19 +42,20 @@ public class AuthController {
         var fcResponse = (HttpServletResponse) facesContext.getExternalContext().getResponse();
         var cookie = new Cookie(cookieName, "");
         cookie.setMaxAge(0);
+        cookie.setPath("/");
         fcResponse.addCookie(cookie);
-        return "/index.xhtml?faces-redirect=true";
+        return "/index?faces-redirect=true";
     }
 
     public void authenticate() {
-        System.out.println("authenticating");
+        System.out.println("authenticating :: username = %s :: password = %s".formatted(username, password));
         try {
             var request = (HttpServletRequest) facesContext.getExternalContext().getRequest();
 
             generateCookie(request);
 
             // redirect to your main page.
-            facesContext.getExternalContext().redirect("/page.xhtml");
+            facesContext.getExternalContext().redirect("/app/page");
         } catch (InvalidLoginCredentialsException e) {
             facesContext.addMessage(null,
                     new FacesMessage(FacesMessage.SEVERITY_ERROR, e.getMessage(), null));
@@ -66,7 +67,7 @@ public class AuthController {
     private void generateCookie(HttpServletRequest request) throws IOException, InterruptedException {
         System.out.println("Generate Cookie called");
         var securityCheckUrl = request.getRequestURL().toString()
-                .replace("/index.xhtml", "/j_security_check");
+                .replace("/index", "/j_security_check");
         var response = jSecurityCheckRequest(securityCheckUrl);
         System.out.println(" STATUS: " + response.statusCode());
         if (response.statusCode() == 401) {

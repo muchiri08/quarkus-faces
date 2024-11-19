@@ -1,6 +1,7 @@
 package com.muchiri.business.users.entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.NamedQuery;
 import jakarta.persistence.Table;
@@ -10,7 +11,9 @@ import jakarta.persistence.Table;
 @Table(name = "users")
 public class User {
     @Id
+    @GeneratedValue
     public Integer id;
-    public String username;
+    public String name;
     public String role;
+    public String password;
 }
